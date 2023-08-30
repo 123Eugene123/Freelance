@@ -6,10 +6,9 @@ import ru.netology.services.CalculateService;
 public class CalculateServiceTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/rest.csv")
-    public void restMonthService(int expected, int income, int expenses) {
+    public void restMonthService(int expected, int income, int expenses, int threshold) {
         CalculateService service = new CalculateService();
-        int actual = service.calculate(income, expenses);
-
+        int actual = service.calculate(income, expenses, threshold);
         Assertions.assertEquals(expected, actual);
     }
 }
